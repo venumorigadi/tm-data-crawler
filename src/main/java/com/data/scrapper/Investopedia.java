@@ -11,6 +11,7 @@ import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Investopedia implements IWebDataScrapper {
@@ -24,8 +25,8 @@ public class Investopedia implements IWebDataScrapper {
     }
 
     @Override
-    public long scrapeDataFromURL() throws IOException {
-        File file = new File("/Users/sivanandareddy/Documents/data_science/output/content.txt");
+    public List<File> scrapeDataFromURL() throws IOException {
+        File file = new File("/Users/sivanandareddy/Documents/data_science/output/v1/content.txt");
         var files = FileUtils.listFiles(new File("/Users/sivanandareddy/Documents/data_science/input/"), null, false);
 
         for (var inputFile : files) {
@@ -49,7 +50,8 @@ public class Investopedia implements IWebDataScrapper {
                 }
             }
         }
-        return  0;
+        //return  file;
+        return  null;
     }
 
     private void scrapeDataFromUrl(File file, String paginationUrl) throws IOException {
